@@ -28,9 +28,9 @@ MODEL_PATH = "model.30.5.007.bin"
 
 VISUAL_FEATURES = "data/img_feats1.0/train.h5"
 
-DATASET_PT = "dataset/visdial_1.0_train-PT-LLM.json"
-DATASET_ES = "dataset/visdial_1.0_train-ES-LLM.json"
-DATASET_EN = "dataset/visdial_1.0_train-EN-LLM.json"
+DATASET_PT = "dataset/visdial_1.0_train-PT.json"
+DATASET_ES = "dataset/visdial_1.0_train-ES.json"
+DATASET_EN = "dataset/visdial_1.0_train-EN.json"
 
 RESULTS_DIR = "results/vdbert_heads_batch"
 os.makedirs(RESULTS_DIR, exist_ok=True)
