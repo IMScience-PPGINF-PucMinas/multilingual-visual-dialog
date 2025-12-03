@@ -4,19 +4,6 @@
 
 This repository provides instructions for training Visual Dialog models for Portuguese and Spanish languages, comparing monolingual (BERTimbau, BETO) and multilingual (mBERT) approaches.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Requirements](#requirements)
-- [Dataset Setup](#dataset-setup)
-- [Model Setup](#model-setup)
-- [Training](#training)
-- [Evaluation](#evaluation)
-- [Pre-trained Models](#pre-trained-models)
-- [Citation](#citation)
-- [Contact](#contact)
-
----
 
 ## 🔍 Overview
 
