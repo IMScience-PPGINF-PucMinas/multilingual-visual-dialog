@@ -211,7 +211,34 @@ python evaluate.py \
 ---
 
 
-## 🔬 Attention Analysis
+### Analysis Workflow
+
+1. **Train Models** (see Training section)
+2. **Extract Checkpoints** at desired epoch
+3. **Run Head Analysis**:
+   ```bash
+   python analyze_attention_heads_batch.py
+   ```
+4. **Run Layer Comparison**:
+   ```bash
+   python compare_models_layers.py
+   ```
+5. **Analyze Results**:
+   - Check `results/vdbert_heads_batch/` for head patterns
+   - Check `results/vdbert_compare_models_layers/` for layer comparisons
+
+### Key Findings from Analysis
+
+From our experiments:
+
+- **Early Layers (0-3)**: More similar attention patterns across languages
+- **Middle Layers (4-8)**: Language-specific specialization emerges
+- **Late Layers (9-11)**: Task-specific attention (answer ranking)
+- **Head Specialization**: Certain heads consistently activate for specific linguistic phenomena
+
+---
+
+## 🔬 Additional Analysis Scripts
 
 Extract and visualize cross-modal attention patterns:
 ```bash
@@ -237,34 +264,6 @@ python visualize_attention.py \
 - `compare_attention.py`: Statistical comparison between models
 - `head_analysis.py`: Head-level cross-lingual analysis
 
----
-
-## 📚 Project Structure
-```
-multilingual-vd-bert/
-├── data/
-│   ├── visdial-pt/           # Portuguese dataset
-│   ├── visdial-es/           # Spanish dataset
-│   └── features/             # Visual features
-├── configs/
-│   ├── train_pt_bertimbau.json
-│   ├── train_es_beto.json
-│   └── train_mbert.json
-├── vdbert/
-│   ├── modeling.py           # Modified VD-BERT model
-│   ├── encoders.py           # Language encoder wrappers
-│   └── data_loader.py        # Data loading utilities
-|   ...
-├── scripts/
-│   ├── download_features.py
-│   ├── download_models.py
-│   └── preprocess_data.py
-├── train.py                  # Main training script
-├── evaluate.py               # Evaluation script
-├── analyze_attention.py      # Attention analysis
-├── visualize_attention.py    # Attention visualization
-└── requirements.txt
-```
 
 ---
 
@@ -314,9 +313,5 @@ If you use this code or models in your research, please cite:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
-
-
-
-Made with ❤️ by [IMScience Lab](https://github.com/IMScience-PPGINF-PucMinas)
 
 </div>
