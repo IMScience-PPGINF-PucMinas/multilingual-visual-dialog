@@ -27,6 +27,8 @@ This project extends Visual Dialog to Portuguese and Spanish by adapting VD-BERT
 # Create datasets directory
 mkdir -p data
 
+cd data
+
 # Clone VisDial-PT (Portuguese)
 git clone https://github.com/IMScience-PPGINF-PucMinas/visdial-pt-brazilian.git data/visdial-pt
 
@@ -49,11 +51,11 @@ data/
 ├── visdial-pt/
 │   ├── visdial_1.0_train.json
 │   ├── visdial_1.0_val.json
-│   └── visdial_1.0_val_dense_annotations.json
+│   
 ├── visdial-es/
 │   ├── visdial_1.0_train.json
 │   ├── visdial_1.0_val.json
-│   └── visdial_1.0_val_dense_annotations.json
+│   
 └── features/
     ├── features_faster_rcnn_x101_train.h5
     └── features_faster_rcnn_x101_val.h5
@@ -72,7 +74,7 @@ cd VD-BERT
 
 ### Step 2: Modify for Multilingual Support
 
-Replace the encoder initialization in `vdbert/modeling.py`:
+Replace the encoder initialization in ` all VD-BERT original project`:
 
 #### For Portuguese Monolingual (BERTimbau)
 ```python
@@ -177,17 +179,6 @@ python train.py \
 | `warmup_ratio` | 0.1 | Linear warmup |
 | `weight_decay` | 0.01 | L2 regularization |
 | `max_seq_length` | 256 | Maximum token sequence |
-
-### Phase 2-4: Full Pipeline (Future Work)
-```bash
-# Phase 2: Full history training (10 epochs)
-python train.py --config configs/train_phase2.json --load_checkpoint checkpoints/pt_bertimbau_phase1/best.pth
-
-# Phase 3: Dense annotation fine-tuning (5 epochs)
-python train.py --config configs/train_phase3.json --load_checkpoint checkpoints/pt_bertimbau_phase2/best.pth
-```
-
----
 
 ## 📈 Evaluation
 
